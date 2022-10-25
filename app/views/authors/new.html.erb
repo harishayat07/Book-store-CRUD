@@ -1,2 +1,9 @@
-<h1>Authors#new</h1>
-<p>Find me in app/views/authors/new.html.erb</p>
+<h1>Add new author</h1>
+
+<%= form_with model: @author do |f|%>
+<%= f.text_field :name, placeholder:"Enter author name" %>
+<%= f.text_field :age, placeholder:"Enter age" %>
+<%= f.text_field :gnder, placeholder:"gender" %>
+<%= f.submit("save author")%>
+
+<%end%>

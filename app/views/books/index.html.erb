@@ -1,30 +1,18 @@
 <h1>List of Books</h1>
 
-<%= link_to('ADD NEW Book','#',:class=> 'action new')%>
+<%= link_to('ADD NEW Book',new_book_path, :class=> 'action new')%>
 <br>
 <br>
 <br>    
-<table class="listing" summary="book lis">
-<tr class="header">
- <th>no</th>
- <th>a_id</th>
- <th>Title</th> 
- <th>Published</th>
- <th>Action</th>
-</tr>
 
+<table>
 <% @allbooks.each do |book| %>
-<tr> <% id = book.id%>
-<td> <%=book.id%></td>
-<td> <%=book.author_id%></td>
-<td> <%= book.title%></td>
-<td> <%=book.published_at%></td>
- <td> 
- <%= link_to('show',singlebook_path(id))%>
- <%= link_to('edit','')%>
- <%= link_to('delete','#')%>
- </td>
-</tr>
+ <tr>
+ <td><%=book.author_id%></td>
+ <td><%= book.title%></td> 
+ <td><%= button_to('show',book_path(book),method: 'get')%></td>
+ <td><%= button_to('edit',edit_book_path(book),method: 'get')%></td>
+ <td><%= button_to('remove',book_path(book),method: 'delete')%></td>
+</tr> 
 <%end%>
-
 </table>

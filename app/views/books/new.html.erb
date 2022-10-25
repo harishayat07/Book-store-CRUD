@@ -1,2 +1,11 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<h1>Add new Book</h1>
+
+<%= @a_id%>
+<%= form_with model: @book do |f|%>
+
+<%= f.text_field :title, placeholder:"Enter Book name" %>
+<%= f.hidden_field :author_id, :value => @a_id%>
+<%= f.text_field :published_at, placeholder:"publishing date" %>
+<%= f.submit("save Book")%>
+
+<%end%>

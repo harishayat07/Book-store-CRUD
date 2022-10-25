@@ -1,5 +1,5 @@
-<%= link_to("<< Back to Book List",allbooks_path)%>
+<%= link_to("<< Back to Book List",books_path(:id))%>
 <h2>show subject</h2>
 <br>
-<%= @book.title%>
-
+Title : <%= @book.title%><br>
+Published at :  <%= @book.published_at%>

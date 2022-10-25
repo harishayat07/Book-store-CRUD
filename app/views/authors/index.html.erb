@@ -1,7 +1,21 @@
-<h1>List of Authors</h1>
-<% @allauthors.each do |thing| %>
-<%= thing.name %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<%= thing.age%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<%= thing.gnder%>
-<br> 
-<% end %>
+<h1>List of authors</h1>
+
+<%= link_to('ADD NEW author',new_author_path, :class=> 'action new')%>
+<br>
+<br>
+<br>    
+
+<table>
+<% @allauthors.each do |author| %>
+ <tr>
+ <td><%=author.id%>.  .  .</td>
+ <td><%= author.name%></td> 
+ <td><%= button_to('show',author_path(author),method: 'get')%></td>
+ <td><%= button_to('edit',edit_author_path(author),method: 'get')%></td>
+ <td><%= button_to('remove',author_path(author),method: 'delete')%></td>
+ <td><%= button_to('Books',author_books_path(author),method: 'get')%></td>
+ <td><%= link_to('Add Book',new_author_book_path(author), :class => 'action new')%></td> 
+ 
+</tr> 
+<%end%>
+</table>
